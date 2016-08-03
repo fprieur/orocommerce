@@ -26,14 +26,14 @@ minion:
     - "db"
     - "mail"
   ports:
-    - "3080:80"
-    - "3020:8080"
+    - "3020:80"
+    - "3021:8080"
   volumes_from:
     - data
     - source_code
   environment:
     - CMD_INIT_BEFORE=
-    - CMD_INIT_CLEAN=sudo -u www-data -E /usr/bin/php /var/www/app/console oro:install --timeout 3600 --force --drop-database --env=prod --user-name=admin --user-firstname=John --user-lastname=Doe --user-password="admin1111" --user-email="johndoe@example.com" --organization-name="Acme" --application-url="http://oro.loc/"
+    - CMD_INIT_CLEAN=sudo -u www-data -E /usr/bin/php /var/www/app/console oro:install --timeout 3600 --force --drop-database --env=prod --user-name=admin --user-firstname=admin --user-lastname=Doe --user-password="admin1111" --user-email="admin@admin.com" --organization-name="Ville de Montreal" --application-url="http://${HOSTNAME}/"
     - CMD_INIT_INSTALLED=
     - CMD_INIT_AFTER=
     - APP_DB_DRIVER=pdo_mysql
